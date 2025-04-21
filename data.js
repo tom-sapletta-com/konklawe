@@ -1,0 +1,161 @@
+
+// Definicje kart kardynałów
+const cardinals = [
+    {
+        id: 'zuppi',
+        type: 'cardinal',
+        name: 'Matteo Zuppi',
+        country: 'Włochy',
+        baseChance: 22,
+        currentChance: 22,
+        traits: ['Kontynuator Franciszka', 'Doświadczony', 'Dyplomatyczny'],
+        resistance: 3
+    },
+    {
+        id: 'parolin',
+        type: 'cardinal',
+        name: 'Pietro Parolin',
+        country: 'Włochy',
+        baseChance: 18,
+        currentChance: 18,
+        traits: ['Dyplomata', 'Zna kurię', 'Umiarkowany'],
+        resistance: 4
+    },
+    {
+        id: 'tagle',
+        type: 'cardinal',
+        name: 'Luis Antonio Tagle',
+        country: 'Filipiny',
+        baseChance: 15,
+        currentChance: 15,
+        traits: ['Charyzmatyczny', 'Reprezentant Azji', 'Młodszy'],
+        resistance: 2
+    },
+    {
+        id: 'burke',
+        type: 'cardinal',
+        name: 'Raymond Burke',
+        country: 'USA',
+        baseChance: 6,
+        currentChance: 6,
+        traits: ['Konserwatywny', 'Tradycjonalista', 'Wpływ Trumpa: +5%'],
+        resistance: 5
+    },
+    {
+        id: 'erdo',
+        type: 'cardinal',
+        name: 'Peter Erdö',
+        country: 'Węgry',
+        baseChance: 12,
+        currentChance: 12,
+        traits: ['Konserwatywny', 'Europa Wschodnia', 'Wpływ Trumpa: +3%'],
+        resistance: 4
+    },
+    {
+        id: 'krajewski',
+        type: 'cardinal',
+        name: 'Konrad Krajewski',
+        country: 'Polska',
+        baseChance: 5,
+        currentChance: 5,
+        traits: ['Działalność charytatywna', 'Współpracownik Franciszka', 'Umiarkowany'],
+        resistance: 3
+    },
+    {
+        id: 'besungu',
+        type: 'cardinal',
+        name: 'Fridolin Besungu',
+        country: 'Kongo',
+        baseChance: 8,
+        currentChance: 8,
+        traits: ['Reprezentant Afryki', 'Charyzmatyczny', 'Wpływ mediów: +2%'],
+        resistance: 2
+    },
+    {
+        id: 'grech',
+        type: 'cardinal',
+        name: 'Mario Grech',
+        country: 'Malta',
+        baseChance: 10,
+        currentChance: 10,
+        traits: ['Bliski Franciszkowi', 'Doświadczenie w dialogu', 'Umiarkowany'],
+        resistance: 3
+    }
+];
+
+// Definicje kart wpływów
+const influenceCards = [
+    {
+        id: 'trump',
+        type: 'political',
+        name: 'Nacisk Trumpa',
+        effects: ['Kardynałowie USA: +5%', 'Konserwatywni: +3%', 'Progresywni: -3%'],
+        duration: 2,
+        defense: 4,
+        target: 'multiple'
+    },
+    {
+        id: 'false-revelation',
+        type: 'demonic',
+        name: 'Fałszywe Objawienie',
+        effects: ['Zmień 10% głosów', 'Cel: 1 wybrany kardynał', 'Duchowość -3 dla wszystkich'],
+        duration: 1,
+        defense: 5,
+        target: 'single'
+    },
+    {
+        id: 'angel-protection',
+        type: 'spiritual',
+        name: 'Ochrona Anielska',
+        effects: ['Neutralizuje wpływ demoniczny', 'Duchowość +2 dla wszystkich'],
+        duration: 2,
+        activation: 'Automatyczna',
+        target: 'all'
+    },
+    {
+        id: 'media-scandal',
+        type: 'media',
+        name: 'Afera Medialna',
+        effects: ['Cel traci 7% poparcia', 'Poparcie rozdzielone między pozostałych'],
+        duration: 1,
+        defense: 3,
+        target: 'single'
+    },
+    {
+        id: 'power-temptation',
+        type: 'demonic',
+        name: 'Pokusa Władzy',
+        effects: ['Cel zyskuje +8%', 'Duchowość -5', 'Podatność na wpływy +2'],
+        duration: 2,
+        defense: 6,
+        target: 'single'
+    },
+    {
+        id: 'diplomatic-pressure',
+        type: 'political',
+        name: 'Naciski Dyplomatyczne',
+        effects: ['Wybierz region', 'Kardynałowie z regionu otrzymują +4% lub -4%'],
+        duration: 3,
+        defense: 3,
+        target: 'region'
+    },
+    {
+        id: 'holy-spirit',
+        type: 'spiritual',
+        name: 'Światło Ducha Świętego',
+        effects: ['Anuluje wszystkie negatywne wpływy', 'Przywraca szanse bazowe'],
+        duration: 0,
+        activation: 'Natychmiastowe',
+        limit: 'Raz na grę',
+        target: 'all'
+    },
+    {
+        id: 'public-support',
+        type: 'media',
+        name: 'Wsparcie Opinii',
+        effects: ['Cel otrzymuje +6%', 'Odporność na wpływy +1', 'Zwiększa prestiż'],
+        duration: 2,
+        defense: 4,
+        target: 'single'
+    }
+];

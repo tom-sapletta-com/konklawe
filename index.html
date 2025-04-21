@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konklawe - Gra Przeglądarkowa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>KONKLAWE</h1>
+        
+        <div class="game-info">
+            <div class="turn-indicator" id="turn-indicator">Tura Gracza 1</div>
+            <div class="round-indicator" id="round-indicator">Runda 1 z 5</div>
+            <div class="game-log" id="game-log">
+                <div class="log-entry">Gra rozpoczęta! Gracz 1 zaczyna.</div>
+            </div>
+        </div>
+        
+        <div class="board">
+            <div class="chapel">
+                <h2>Kaplica Sykstyńska</h2>
+                <div class="voting-area">
+                    <div class="voting-circle" id="voting-circle">
+                        Głosowanie
+                    </div>
+                </div>
+            </div>
+            
+            <div class="influence-zones">
+                <div class="influence-zone political">
+                    <h3>Wpływy Polityczne</h3>
+                    <div id="political-influence">
+                        <p>Aktywne karty: <span id="political-cards">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="influence-zone demonic">
+                    <h3>Wpływy Demoniczne</h3>
+                    <div id="demonic-influence">
+                        <p>Aktywne karty: <span id="demonic-cards">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="influence-zone spiritual">
+                    <h3>Wpływy Duchowe</h3>
+                    <div id="spiritual-influence">
+                        <p>Aktywne karty: <span id="spiritual-cards">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="influence-zone media">
+                    <h3>Wpływy Medialne</h3>
+                    <div id="media-influence">
+                        <p>Aktywne karty: <span id="media-cards">0</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="vote-tracker">
+                <h3>Liczba głosów (wymagane 2/3)</h3>
+                <button id="show-votes">Pokaż aktualny stan głosowania</button>
+            </div>
+            
+            <div class="board-cards" id="board-cards">
+                <!-- Karty na planszy będą generowane przez JavaScript -->
+            </div>
+        </div>
+        
+        <div class="player-hands">
+            <div class="player-hand">
+                <h3 class="hand-title">Gracz 1 - Ręka</h3>
+                <div class="cards" id="player1-hand">
+                    <!-- Karty gracza 1 będą generowane przez JavaScript -->
+                </div>
+            </div>
+            
+            <div class="player-hand">
+                <h3 class="hand-title">Gracz 2 - Ręka</h3>
+                <div class="cards" id="player2-hand">
+                    <!-- Karty gracza 2 będą generowane przez JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="play-card">Zagraj kartę</button>
+            <button id="draw-card">Dobierz kartę</button>
+            <button id="end-turn">Zakończ turę</button>
+            <button id="start-voting">Rozpocznij głosowanie</button>
+        </div>
+    </div>
+    
+    <!-- Modal dla głosowania -->
+    <div class="modal" id="voting-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-voting-modal">&times;</span>
+            <h2>Wyniki głosowania</h2>
+            <div class="voting-results" id="voting-results">
+                <!-- Wyniki głosowania będą generowane przez JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal dla kart kardynałów -->
+    <div class="modal" id="cardinals-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-cardinals-modal">&times;</span>
+            <h2>Kardynałowie w grze</h2>
+            <div id="cardinal-display">
+                <!-- Karty kardynałów będą generowane przez JavaScript -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal zakończenia gry -->
+    <div class="modal" id="game-end-modal">
+        <div class="modal-content">
+            <h2>Konklawe zakończone!</h2>
+            <div id="winner-info">
+                <!-- Informacja o zwycięzcy będzie generowana przez JavaScript -->
+            </div>
+            <button id="new-game" style="margin-top: 20px;">Rozpocznij nową grę</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

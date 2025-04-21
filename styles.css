@@ -1,0 +1,428 @@
+body {
+    font-family: 'Trajan Pro', 'Times New Roman', serif;
+    background-color: #f0e6d2;
+    color: #8b4513;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #8b0000;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f5f5dc;
+    border: 4px solid #8b4513;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.chapel {
+    background-color: #ffefd5;
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chapel h2 {
+    margin-top: 0;
+}
+
+.voting-area {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.voting-circle {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 215, 0, 0.3);
+    border: 2px solid #8b4513;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.influence-zones {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.influence-zone {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid;
+}
+
+.political {
+    background-color: #e6e6fa;
+    border-color: #483d8b;
+    color: #483d8b;
+}
+
+.demonic {
+    background-color: #ffe4e1;
+    border-color: #8b0000;
+    color: #8b0000;
+}
+
+.spiritual {
+    background-color: #e0ffff;
+    border-color: #4682b4;
+    color: #4682b4;
+}
+
+.media {
+    background-color: #f0fff0;
+    border-color: #2e8b57;
+    color: #2e8b57;
+}
+
+.vote-tracker {
+    background-color: #f5f5f5;
+    border: 2px solid #696969;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.player-hands {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.player-hand {
+    flex: 1;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+}
+
+.hand-title {
+    text-align: center;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #8b4513;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.card {
+    width: 130px;
+    height: 180px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid #8b4513;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.8em;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.card-header {
+    height: 25px;
+    margin: -8px -8px 8px -8px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.card-title {
+    font-weight: bold;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.card-subtitle {
+    text-align: center;
+    color: #696969;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.card-chance {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.chance-value {
+    font-weight: bold;
+    color: #8b0000;
+    font-size: 1.1em;
+}
+
+.card-divider {
+    height: 1px;
+    background-color: #d3d3d3;
+    margin: 5px 0;
+}
+
+.card-traits {
+    font-size: 0.75em;
+}
+
+.cardinal .card-header {
+    background-color: #8b0000;
+}
+
+.political .card-header {
+    background-color: #483d8b;
+}
+
+.demonic .card-header {
+    background-color: #8b0000;
+}
+
+.spiritual .card-header {
+    background-color: #4682b4;
+}
+
+.media .card-header {
+    background-color: #2e8b57;
+}
+
+.covered {
+    background-color: #8b4513;
+}
+
+.covered * {
+    display: none;
+}
+
+.covered::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238b4513"/><path d="M50,30 L60,50 L50,70 L40,50 Z" fill="gold"/><circle cx="50" cy="50" r="20" fill="none" stroke="gold" stroke-width="2"/></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+.board-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8b0000;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #a52a2a;
+}
+
+button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}
+
+.game-info {
+    background-color: white;
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.turn-indicator {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.round-indicator {
+    text-align: center;
+}
+
+.game-log {
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.log-entry {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #f0e6d2;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #8b0000;
+}
+
+#cardinal-display {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cardinal-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cardinal-card {
+    width: 150px;
+}
+
+.voting-results {
+    margin-top: 20px;
+}
+
+.vote-bar {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.vote-name {
+    width: 150px;
+}
+
+.vote-progress {
+    flex: 1;
+    height: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.vote-fill {
+    height: 100%;
+    background-color: #8b0000;
+}
+
+.vote-percentage {
+    width: 50px;
+    text-align: right;
+}
+
+.winner {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px -5px #ffff00;
+    }
+    to {
+        box-shadow: 0 0 20px 5px #ffff00;
+    }
+}
+
+/* Responsywność dla małych ekranów */
+@media (max-width: 768px) {
+    .influence-zones {
+        flex-direction: column;
+    }
+    
+    .player-hands {
+        flex-direction: column;
+    }
+    
+    .controls {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .board-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
