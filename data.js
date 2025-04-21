@@ -159,3 +159,7 @@ const influenceCards = [
         target: 'single'
     }
 ];
+
+
+// Dodaj eksporty
+export { cardinals, influenceCards };
