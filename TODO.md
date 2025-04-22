@@ -6,3 +6,5 @@
 6. logi na dole
 7. kaplica sykstynska zmniejszyc
 8. bloki media, moce, itd 4 w jednej linii a nie 3 jak teraz
+9. polityczne wplywy putina, chin
+10. 
